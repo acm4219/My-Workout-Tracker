@@ -11,9 +11,12 @@ const WorkoutSchema = new Schema({
         {
             type: {
                 type: String,
+                trim: true,
+                required: "excercise field cannot be blank"
             },
             name:{
                 type: String,
+                required: "enter a name for exercise"
             },
             duration:{
                 type: Number,
