@@ -1,6 +1,14 @@
-const { Router, response } = require("express");
 const express = require("express");
-const db = require("../models");
-var router = express.Router(); 
+const router = express.Router(); 
 
-router.get("/", function(req, res))
+router.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+router.get("/exercise", function(req, res){
+    res.sendFile(path.join(__dirname, "excercise.html"));
+});
+router.get("/stats", function(req, res) {
+    res.sendFile(path.join(__dirname, "stats.html"));
+});
+
+module.exports = router;
