@@ -18,6 +18,9 @@ const WorkoutSchema = new Schema({
                 type: String,
                 required: "enter a name for exercise"
             },
+            distance: {
+                type: Number,
+            },
             duration:{
                 type: Number,
             },
@@ -46,6 +49,11 @@ WorkoutSchema.virtual("totalDuration").get(function () {
     return this.exercises.reduce((total, exercise) => {
       return total + exercise.duration;
     }, 0);
+  });
+  WorkoutSchema.virtual("totalDistance").get(function() {
+      return this.exercises.reduce((total, exercise) => {
+          return total + exercise.distance;
+      }, 0);
   });
   
 
